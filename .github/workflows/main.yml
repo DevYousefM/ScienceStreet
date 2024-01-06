@@ -11,6 +11,6 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: ftp.samkirkland.com
-        username: myFtpUserName
+        server: dev-yousef@thesciencestreet.com
+        username: ftp.thesciencestreet.com
         password: ${{ secrets.ftp_password }}
