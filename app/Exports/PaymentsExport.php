@@ -76,7 +76,7 @@ class PaymentsExport implements FromQuery, WithMapping, WithHeadings, ShouldAuto
         return [
             $i->student_name,
             $i->parent_name,
-            $parent_number,
+            $parent_number ?? $i->parent_number,
             $i->parent_email,
             $i->school_name,
             $age,
