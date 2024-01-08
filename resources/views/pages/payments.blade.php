@@ -1,6 +1,13 @@
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="pb-3">
+                <x-primary-button>
+                    <a href="{{ route('export.payments') }}">
+                        {{ __('Export as Excel Sheet') }}
+                    </a>
+                </x-primary-button>
+            </div>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900" style="overflow: auto">
                     <table class="min-w-full divide-y divide-gray-200">
@@ -100,7 +107,7 @@
                                     </td>
                                     <td class="px-2 py-2 whitespace-nowrap">
                                         <span style="width: 110px;display: block">
-                                            {{ $i->updated_at->format('d-m-Y') }}
+                                            {{ $i->updated_at }}
                                         </span>
                                     </td>
                                     <td class="px-2 py-2 whitespace-nowrap">{{ $i->status }}</td>

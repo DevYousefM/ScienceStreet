@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PaymentsExport;
 use App\Models\Payments;
 use App\Models\PromoCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Maatwebsite\Excel\Facades\Excel;
 use Nafezly\Payments\Classes\PaymobPayment;
 
 class PaymentsController extends Controller
@@ -93,5 +95,9 @@ class PaymentsController extends Controller
     {
         $payments = Payments::orderBy("updated_at", "desc")->paginate(5);
         return view("pages.payments", ["payments" => $payments]);
+    }
+    public function export()
+    {
+        return Excel::download(new PaymentsExport, "payments.xlsx");
     }
 }
